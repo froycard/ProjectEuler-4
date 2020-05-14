@@ -1,0 +1,16 @@
+def is_palindrome(n):
+    m = int(str(n)[::-1])
+    if m == n: return True
+    return False
+
+max=0
+i = 999
+
+while(i>99):
+    for j in range(i-1,100,-1):
+        k=i*j
+        if is_palindrome(k):
+            if k > max: max = k
+    i-=1
+    
+print(max)
