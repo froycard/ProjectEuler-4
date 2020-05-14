@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+
+bool is_palindrome(int num)
+{
+	std::string tmp = std::to_string(num);
+	bool is_pal = true;
+	for(decltype(tmp.size()) i=0, j=tmp.size()-1; i<tmp.size()/2; ++i,--j)
+		if(tmp[i] != tmp[j])
+		{
+			is_pal = false;
+			break;
+		}
+	return is_pal;
+}
+int main()
+{
+	auto i = 1000;
+	auto big = 0;
+	while(--i>100)
+		for(auto j = i - 1; j>100; --j)
+			if(is_palindrome(i*j))
+				if(big<(i*j)) big = i*j;
+	
+	std::cout <<big;
+
+	return 0;
+}
